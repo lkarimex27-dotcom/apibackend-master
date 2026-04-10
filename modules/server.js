@@ -7,7 +7,7 @@ class Server {
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
-        this.usuariosPath = '/api/usuarios'; // <--- Esta es la ruta que debes usar
+        this.pacientesPath = '/api/pacientes'; // <--- Esta es la ruta que debes usar
         this.middlewares();
         this.routes();
         this.connectDb();
@@ -23,7 +23,7 @@ class Server {
         this.app.use(express.static(__dirname + '/public'));
     }
     routes() {
-        this.app.use(this.usuariosPath, require('../routes/usuarios'));
+            this.app.use(this.pacientesPath, require('../routes/pacientes'));
     }
     async connectDb() {
         await dbConnection();
